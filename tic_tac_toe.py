@@ -66,9 +66,8 @@ def multiplayer():
                     break
         break
 
-                       
-def single_player():
 
+def single_player():
     while True:
         Input = raw_input("Select a spot: ")
         Input = int(Input)
@@ -80,22 +79,26 @@ def single_player():
                 break
 
 
-            while True:
-                random.seed() #give a random generator
-                opponent = random.randint(0, 8)
-                if board[opponent] != 'o' and board[opponent] != 'x':
-                    board[opponent] = 'o'
+        while True:
+            random.seed() #give a random generator
+            opponent = random.randint(0, 8)
+            if board[opponent] != 'o' and board[opponent] != 'x':
+            	board[opponent] = 'o'
 
 #Check
-                if checkAll('o') == True:
+            	if checkAll('o') == True:
                     print 'O WINS!'
                     break
-            break
+                break
 
         else:
             print "This spot is taken!"
         show()
 if selectmode == 'single player':
-    single_player()
+    while True:
+        single_player()
+        break
 elif selectmode == 'multiplayer':
-    multiplayer()
+    while True:
+        multiplayer()
+        break
