@@ -2,7 +2,14 @@ import random
 """
 the game board
 """
-print "You are X your goal is to win 3 in a row against the computer."
+print 'choose multiplayer or single player'
+selectmode = raw_input(" Choose game mode :   ")
+
+if selectmode == 'single player':
+    print "You are X your goal is to win 3 in a row against the computer."
+elif selectmode == 'multiplayer':
+    print "You will be playing against your friend see who can win."
+
 board = [0, 1, 2,
          3, 4, 5,
          6, 7, 8]
@@ -38,29 +45,57 @@ def show():
     print '----------'
     print board[6], '|', board[7], '|', board[8]
 show()
-while True:
-    Input = raw_input("Select a spot: ")
-    Input = int(Input)
-    if board[Input] != 'x' and board[Input] != 'o':
-        board[Input] = 'x'
-#Check
-        if checkAll('x') == True:
-            print "X WINS!"
-            break
+def multiplayer():
+    while True:
+        input = raw_input('Player 1 select a spot: ')
+        input = int(input)
+        if board[input] != 'x' and board[input] != 'o':
+            board[input] = 'x'
+#check
+            if checkAll('x') == True:
+                print "Player 1 wins!"
+                break
 
+            while True:
+                secondinput = raw_input("Player 2 select a spot: ")
+                secondinput = int(secondinput)
+                if board[secondinput] != 'x' and board[secondinput] != 'o':
+                    board[secondinput] = 'o'
+                if checkAll('o') == True:
+                    print "Player 2 wins!"
+                    break
+        break
+
+                       
+def single_player():
 
     while True:
-        random.seed() #give a random generator
-        opponent = random.randint(0, 8)
-        if board[opponent] != 'o' and board[opponent] != 'x':
-            board[opponent] = 'o'
+        Input = raw_input("Select a spot: ")
+        Input = int(Input)
+        if board[Input] != 'x' and board[Input] != 'o':
+            board[Input] = 'x'
+#Check
+            if checkAll('x') == True:
+                print "X WINS!"
+                break
+
+
+            while True:
+                random.seed() #give a random generator
+                opponent = random.randint(0, 8)
+                if board[opponent] != 'o' and board[opponent] != 'x':
+                    board[opponent] = 'o'
 
 #Check
-            if checkAll('o') == True:
-                print 'O WINS!'
-                break
+                if checkAll('o') == True:
+                    print 'O WINS!'
+                    break
             break
 
-    else:
-        print "This spot is taken!"
-    show()
+        else:
+            print "This spot is taken!"
+        show()
+if selectmode == 'single player':
+    single_player()
+elif selectmode == 'multiplayer':
+    multiplayer()
