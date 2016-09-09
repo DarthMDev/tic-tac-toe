@@ -37,6 +37,26 @@ def checkAll(char):
     if checkLine(char, 2, 5, 8):
         return True
 
+def x_is_about_to_win(spot1, spot2, spot3):
+    if board[spot1] == 'x' and board[spot2] == 'x' and board[spot3] != 'o':
+        return True
+def checkAlmostWin():
+    if x_is_about_to_win(0, 1, 2):
+        return True
+    if x_is_about_to_win(1, 4, 7):
+        return True
+    if x_is_about_to_win(3, 4, 5):
+        return True
+    if x_is_about_to_win(6, 7, 8):
+        return True
+    if x_is_about_to_win(0, 3, 6):
+        return True
+    if x_is_about_to_win(0, 4, 8):
+        return True
+    if x_is_about_to_win(2, 4, 6):
+        return True
+    if x_is_about_to_win(2, 5, 8):
+        return True
 
 def show():
     print board[0], '|', board[1], '|', board[2]
@@ -83,13 +103,17 @@ def single_player():
 
 
         while True:
+#code for ai to block the x
+            #if checkAlmostWin() == True:
+                #
+
             random.seed() #give a random generator
             opponent = random.randint(0, 8)
             if board[opponent] != 'o' and board[opponent] != 'x':
-            	board[opponent] = 'o'
+                board[opponent] = 'o'
 
 #Check
-            	if checkAll('o') == True:
+                if checkAll('o') == True:
                     print 'O WINS!'
                     break
                 break
