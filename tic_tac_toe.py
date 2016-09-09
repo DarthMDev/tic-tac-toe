@@ -56,15 +56,18 @@ def multiplayer():
                 print "Player 1 wins!"
                 break
 
-            while True:
-                secondinput = raw_input("Player 2 select a spot: ")
-                secondinput = int(secondinput)
-                if board[secondinput] != 'x' and board[secondinput] != 'o':
-                    board[secondinput] = 'o'
+        while True:
+            secondinput = raw_input("Player 2 select a spot: ")
+            secondinput = int(secondinput)
+            if board[secondinput] != 'x' and board[secondinput] != 'o':
+                board[secondinput] = 'o'
                 if checkAll('o') == True:
                     print "Player 2 wins!"
                     break
-        break
+                break
+        else:
+            print "This spot is taken!"
+        show()
 
 
 def single_player():
