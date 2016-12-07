@@ -86,10 +86,10 @@ def single_player():
             random.seed() #give a random generator
             opponent = random.randint(0, 8)
             if board[opponent] != 'o' and board[opponent] != 'x':
-                board[opponent] = 'o'
+            	board[opponent] = 'o'
 
 #Check
-                if checkAll('o') == True:
+            	if checkAll('o') == True:
                     print 'O WINS!'
                     break
                 break
