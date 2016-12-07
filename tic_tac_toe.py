@@ -36,7 +36,7 @@ def checkAll(char):
         return True
     if checkLine(char, 2, 5, 8):
         return True
-        
+
 def show():
     print board[0], '|', board[1], '|', board[2]
     print '----------'
@@ -50,6 +50,7 @@ def multiplayer():
         input = int(input)
         if board[input] != 'x' and board[input] != 'o':
             board[input] = 'x'
+            show()
 #check
             if checkAll('x') == True:
                 print "Player 1 wins!"
@@ -99,6 +100,10 @@ def single_player():
 if selectmode == 'single player':
     while True:
         single_player()
+        #if win == True:
+        #    askplayagain = raw_input('Want to play again? Enter y for yes or n for no.')
+
+        #playagain()
         break
 elif selectmode == 'multiplayer':
     while True:
