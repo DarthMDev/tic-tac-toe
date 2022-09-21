@@ -16,7 +16,7 @@ After you do these steps open cmd and then cd to your desktop or anywhere you wa
 example :
 cd c:\Users\(username)\Desktop
 then do these  commands :
-git clone https://github.com/mgracer48/tic-tac-toe
+git clone https://github.com/MichaelGDev48/tic-tac-toe
 git checkout stable
 Then run  install_depdencies.command(on mac)
 Then run the python msi installer if on windows
